@@ -1,3 +1,5 @@
+console.log("Loading...");
+
 const InstaClient = require("./structure/InstaClient");
 const cron = require('node-cron');
 

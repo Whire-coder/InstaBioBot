@@ -29,14 +29,15 @@ class InstaClient {
             temperature = data;
         });
 
-        await client.simulate.preLoginFlow()
-        await client.account.login(ig.username, ig.password);
+        // await client.simulate.preLoginFlow() // USELESS
+        await client.account.login(this.username, this.password);
       
         // log out of Instagram when done
         process.nextTick(async () => await client.simulate.postLoginFlow());
       
         // fill in whatever you want your new Instagram bio to be
-        await client.account.setBiography(`Nous sommes le ${date.toLocaleDateString()}, il est ${date.getHours()+"h"+date.getMinutes()} \nIl fait ${temperature ? `${temperature}°C` : "FROID"} à Nantes \nProgramme made by Rome`);
+        await client.account.setBiography(`Dernière actualisation le ${date.toLocaleDateString()}, à ${date.getHours()+"h"+date.getMinutes()} \nIl fait ${temperature ? `${temperature}°C` : "FROID"} à Nantes \nMade by Rome with ❤️`);
+        console.log(`Posted on ${date.getHours()+"h"+date.getMinutes()} !`);
     }
 }
 
