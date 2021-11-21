@@ -7,6 +7,6 @@ const ig = new InstaClient();
 
 ig.client.state.generateDevice(ig.username);
 
-cron.schedule('0 0 */3 * * *', () => {
+cron.schedule('0 0 */3 * * *', () => { // Every 3 hours
     ig.update_bio();
 });
